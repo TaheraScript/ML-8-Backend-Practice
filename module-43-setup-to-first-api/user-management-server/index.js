@@ -17,6 +17,15 @@ app.get('/work',(req,res)=>{
 app.get('/contact', (req, res) =>{
     res.send('Contact Section')
 })
+const users =[
+    {id:1, name:'Kabul', email: 'kabul@gmail.com'},
+    {id:1, name:'Babul', email: 'babul@gmail.com'},
+    {id:1, name:'Abul', email: 'abul@gmail.com'},
+    {id:1, name:'Gabul', email: 'gabul@gmail.com'}
+]
+app.get('/users', (req, res) =>{
+    res.send(users)
+})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
