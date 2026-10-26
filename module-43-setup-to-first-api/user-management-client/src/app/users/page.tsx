@@ -1,12 +1,18 @@
-import React from "react";
+import React, { Suspense } from "react";
+import Users from "../components/Users";
+const usersPromise =async()=>{
+   const data = await fetch("http://localhost:5000/users");
+ return data.json();
+}
 
 const UsersPage = async () => {
-  const data = await fetch("http://localhost:5000/users");
-  const users = await data.json();
-  console.log( users);
+ 
   return (
     <div>
-      <h2>Users are coming soon :{users.length}</h2>
+      <h2>Users are coming soon :</h2>
+      <Suspense fallback={<h2>Loading...</h2>}>
+      <Users usersPromise={usersPromise}></Users>
+      </Suspense>
     </div>
   );
 };
